@@ -9,7 +9,8 @@
   },
   "scripts": {
     "start": "brunch watch --server",
-    "prod": "brunch build --production"
+    "prod": "brunch build --production",
+    "deploy": "git subtree push --prefix public origin gh-pages"
   },
   "dependencies": {
     "react": "~0.14.7",
