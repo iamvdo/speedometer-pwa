@@ -18,7 +18,8 @@ export default class Speedometer extends React.Component {
     if (navigator.geolocation) {
       navigator.geolocation.watchPosition(
         (p) => this._onPosition(p),
-        (err) => this._onErrorPosition(err)
+        (err) => this._onErrorPosition(err),
+        { enableHighAccuracy: true }
       );
     }
   }
