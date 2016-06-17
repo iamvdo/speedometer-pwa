@@ -1,3 +1,5 @@
+// ?v=1
+
 // install
 // create cache and store all assets
 self.addEventListener('install', (event) => {
