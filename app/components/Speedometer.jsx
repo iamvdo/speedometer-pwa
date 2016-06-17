@@ -9,21 +9,27 @@ export default class Speedometer extends React.Component {
     super(props);
     this.state = {
       speed: 0,
-      unit: true
+      unit: true,
+      geoStatus: false
     };
   }
 
   componentDidMount() {
     if (navigator.geolocation) {
-      navigator.geolocation.watchPosition((p) => this._onPosition(p));
+      navigator.geolocation.watchPosition(
+        (p) => this._onPosition(p),
+        (err) => this._onErrorPosition(err)
+      );
     }
   }
 
   render() {
     const speed = this._setSpeed();
+    const geoStatus = this.state.geoStatus ? 'on' : 'off';
     return (
       <div className="Speedometer">
         <div className="Speedometer-speed">
+          <div className={"Speedometer-status Speedometer-status--" + geoStatus}></div>
           {speed}
           <Switch 
             theme="Speedometer-unit"
@@ -44,7 +50,14 @@ export default class Speedometer extends React.Component {
 
   _onPosition(position) {
     this.setState({
-      speed: position.coords.speed
+      speed: position.coords.speed,
+      geoStatus: true
+    });
+  }
+
+  _onErrorPosition(error) {
+    this.setState({
+      geoStatus: false
     });
   }
 

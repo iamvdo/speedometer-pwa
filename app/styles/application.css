@@ -23,7 +23,22 @@ body {
   width: 100vmin;
   height: 100vmin;
 }
+.Speedometer-status {
+  box-sizing: border-box;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  transition: background .5s;
+}
+.Speedometer-status--on {
+  background: #8e44ad;
+}
 .Speedometer-speed {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   font-family: monospace;
   font-size: 35vmin;
   text-align: center;
