@@ -8,6 +8,7 @@ export default class Speedometer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      speed: 0,
       unit: true
     };
   }
@@ -42,56 +43,30 @@ export default class Speedometer extends React.Component {
   }
 
   _onPosition(position) {
-    if ( this.state.position ) {
-      this.setState({
-        oldPosition: this.state.position
-      });
-    }
     this.setState({
-      position: position
+      speed: position.coords.speed
     });
   }
 
   _onSwitch(evt) {
-    var checked = evt.currentTarget.checked;
+    const checked = evt.currentTarget.checked;
     this.setState({
       unit: checked
     });
   }
 
   _setSpeed() {
-    if (!this.state.position || !this.state.oldPosition) {
+    let speed = this.state.speed;
+    if (speed == null) {
       return 0;
     }
-    var latlng1 = {
-      lat: this.state.position.coords.latitude,
-      lng: this.state.position.coords.longitude
-    };
-    var latlng2 = {
-      lat: this.state.oldPosition.coords.latitude,
-      lng: this.state.oldPosition.coords.longitude
-    };
-    var timeElapsedInMs = (this.state.position.timestamp - this.state.oldPosition.timestamp);
-    var distanceInMeters = this._distance(latlng1, latlng2);
-    var distanceInMetersByHours = distanceInMeters * (1000 * 60 * 60) / timeElapsedInMs;
-    var speed = distanceInMetersByHours / 1000;
-
+    // speed is meter per second, convert kmh
+    speed *= 3.6;
+    // if !unit, convert to mph
     if ( !this.state.unit ) {
       speed /= 1.609344;
     }
-
     return parseFloat(speed).toFixed(0);
-  }
-
-  _distance(latlng1, latlng2) {
-    var R = 6371000;
-    var rad = Math.PI / 180,
-        lat1 = latlng1.lat * rad,
-        lat2 = latlng2.lat * rad,
-        a = Math.sin(lat1) * Math.sin(lat2) +
-            Math.cos(lat1) * Math.cos(lat2) * Math.cos((latlng2.lng - latlng1.lng) * rad);
-
-    return R * Math.acos(Math.min(a, 1));
   }
 
 }
