@@ -1,16 +1,16 @@
 // install
 // create cache and store all assets
-self.addEventListener('install', (e) => {
-  e.waitUntil(
+self.addEventListener('install', (event) => {
+  event.waitUntil(
     caches.open('speedometer')
       .then((cache) => {
         return cache.addAll([
-          '/',
-          '/index.html',
-          '/app.css',
-          '/app.js',
-          '/vendor.js',
-          '/manifest.json'
+          './',
+          'index.html',
+          'app.css',
+          'app.js',
+          'vendor.js',
+          'manifest.json'
        ]);
       })
       .then(() => {
