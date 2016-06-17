@@ -13,7 +13,8 @@
   },
   "dependencies": {
     "react": "~0.14.7",
-    "react-dom": "~0.14.7"
+    "react-dom": "~0.14.7",
+    "react-switch-button": "^1.1.2"
   },
   "devDependencies": {
     "auto-reload-brunch": "^2.0.0",
