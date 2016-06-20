@@ -1,11 +1,11 @@
 {
-  "name": "your-app",
-  "description": "Description",
-  "author": "Your Name",
+  "name": "speedometer",
+  "description": "Speedometer Progressive Web App",
+  "author": "Vincent De Oliveira",
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/iamvdo/speedometer-pwa"
   },
   "scripts": {
     "start": "brunch watch --server",
