@@ -9,6 +9,7 @@ export default class Speedometer extends React.Component {
     super(props);
     this.state = {
       speed: 0,
+      accuracy: 10,
       unit: true,
       geoStatus: false
     };
@@ -27,10 +28,15 @@ export default class Speedometer extends React.Component {
   render() {
     const speed = this._setSpeed();
     const geoStatus = this.state.geoStatus ? 'on' : 'off';
+    const accuracy = Math.min(this.state.accuracy, 50);
     return (
       <div className="Speedometer">
         <div className="Speedometer-speed">
-          <div className={"Speedometer-status Speedometer-status--" + geoStatus}></div>
+          <div className="Speedometer-status">
+            <div className="Speedometer-accuracy"
+                 style={{transform: 'scale(' + accuracy / 10 + ')'}}></div>
+            <div className={"Speedometer-led Speedometer-led--" + geoStatus}></div>
+          </div>
           {speed}
           <Switch 
             theme="Speedometer-unit"
@@ -52,6 +58,7 @@ export default class Speedometer extends React.Component {
   _onPosition(position) {
     this.setState({
       speed: position.coords.speed,
+      accuracy: position.coords.accuracy,
       geoStatus: true
     });
   }
