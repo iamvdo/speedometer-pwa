@@ -1,4 +1,4 @@
-// ?v=1
+// ?v=2
 
 // install
 // create cache and store all assets
