@@ -78,7 +78,9 @@ export default class Speedometer extends React.Component {
 
   _setSpeed() {
     let speed = this.state.speed;
-    if (speed == null) {
+    // if speed is null OR
+    // if accuracy is not accurate
+    if (speed == null || this.state.accuracy >= 30) {
       return 0;
     }
     // speed is meter per second, convert kmh
