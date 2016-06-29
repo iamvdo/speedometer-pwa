@@ -34,7 +34,7 @@ export default class Speedometer extends React.Component {
         <div className="Speedometer-speed">
           <div className="Speedometer-status">
             <div className="Speedometer-accuracy"
-                 style={{transform: 'scale(' + accuracy / 10 + ')'}}></div>
+                 style={{transform: 'scale(' + accuracy / 40 + ')'}}></div>
             <div className={"Speedometer-led Speedometer-led--" + geoStatus}></div>
           </div>
           {speed}
