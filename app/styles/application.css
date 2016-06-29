@@ -110,9 +110,6 @@ body {
   border-radius: 60px;
   transition: background .4s
 }
-.rsbc-switch-button:hover input[type="checkbox"] + label {
-  
-}
 .rsbc-switch-button input[type="checkbox"] + label:before,
 .rsbc-switch-button input[type="checkbox"] + label:after {
   display: inline-block;
@@ -127,9 +124,6 @@ body {
   background-color: #8e44ad;
   border-radius: 60px;
   transition: background .4s
-}
-.rsbc-switch-button:hover input[type="checkbox"] + label:before {
-  background-color: #222;
 }
 .rsbc-switch-button input[type="checkbox"] + label:after {
   top: 4px;
