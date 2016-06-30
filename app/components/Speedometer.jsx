@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Store from './Store.js';
 
 import Switch from 'react-switch-button';
 
-export default class Speedometer extends React.Component {
+class Speedometer extends React.Component {
 
   constructor(props) {
     super(props);
@@ -43,7 +44,7 @@ export default class Speedometer extends React.Component {
             name="switch-units"
             label="mph"
             labelRight="km/h"
-            defaultChecked="checked"
+            checked={this.state.unit ? 'checked' : ''}
             onChange={(e) => this._onSwitch(e)} />
         </div>
         <div className="Speedometer-speedo">
@@ -93,3 +94,7 @@ export default class Speedometer extends React.Component {
   }
 
 }
+
+Speedometer.displayName = 'Speedometer';
+
+export default Store(Speedometer, ['unit']);
