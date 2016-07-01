@@ -165,8 +165,8 @@ body {
   width: 5vmin;
   background-color: #fff;
   border-radius: 50%;
-  transition: margin .4s,background .4s
+  transition: transform .4s,background .4s
 }
 .rsbc-switch-button input[type="checkbox"]:checked + label:after {
-  margin-left: 7.5vmin;
+  transform: translate(7.5vmin);
 }
