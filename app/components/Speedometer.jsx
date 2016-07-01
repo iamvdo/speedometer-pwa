@@ -30,6 +30,16 @@ class Speedometer extends React.Component {
     const speed = this._setSpeed();
     const geoStatus = this.state.geoStatus ? 'on' : 'off';
     const accuracy = Math.min(this.state.accuracy, 50);
+    const angleLimit = 180;
+    const angleFactorOne = 1.5;
+    const angleFactorTwo = .4;
+    let angle = 0;
+    if (speed < angleLimit) {
+      angle = (speed % angleLimit) * angleFactorOne;
+    } else {
+      angle = (angleLimit * angleFactorOne) + ((speed - angleLimit) * angleFactorTwo);
+    }
+    angle = Math.min(angle, 340);
     return (
       <div className="Speedometer">
         <div className="Speedometer-speed">
@@ -50,7 +60,7 @@ class Speedometer extends React.Component {
         <div className="Speedometer-speedo">
           <div 
             className="Speedometer-arrow"
-            style={{transform: 'rotate(' + speed * 1.5 + 'deg)'}}></div>
+            style={{transform: 'rotate(' + angle + 'deg)'}}></div>
         </div>
       </div>
     );
