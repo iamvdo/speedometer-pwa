@@ -1,4 +1,4 @@
-// ?v=3
+// ?v=4
 
 // install
 // create cache and store all assets
@@ -14,9 +14,6 @@ self.addEventListener('install', (event) => {
           'vendor.js',
           'manifest.json'
        ]);
-      })
-      .then(() => {
-        return self.skipWaiting();
       })
   );
 });
