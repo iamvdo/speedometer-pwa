@@ -14,7 +14,7 @@ self.addEventListener('install', (event) => {
           'vendor.js',
           'manifest.json'
         ]);
-      });
+      })
   );
 });
 
