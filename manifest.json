@@ -22,7 +22,7 @@
     "sizes": "256x256",
     "type": "image/png"
   }],
-  "start_url": "./",
+  "start_url": "/speedometer-pwa",
   "display": "standalone",
   "background_color": "#8e44ad",
   "theme_color": "#8e44ad",
